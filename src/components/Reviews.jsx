@@ -39,7 +39,7 @@ const Reviews = () => {
                     </div>
                     <h2 className="text-5xl md:text-6xl font-serif mb-6 text-[#1A1A1A]">Trusted by Enthusiasts</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto font-light text-xl leading-relaxed">
-                        With an average rating of <span className="text-primary font-bold text-2xl drop-shadow-sm">4.9/5</span> from our elite clientele in Multan.
+                        With an average rating of <span className="text-primary font-bold text-2xl drop-shadow-sm">4.9/5</span> from our elite clientele in Islamabad.
                     </p>
                     <div className="w-24 h-1 bg-primary mx-auto mt-10 rounded-full" />
                 </div>
