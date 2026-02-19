@@ -60,7 +60,7 @@ const Collection = () => {
                                     <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center backdrop-blur-sm">
                                         <p className="text-white mb-6 font-light">{product.desc}</p>
                                         <a
-                                            href={`https://wa.me/923455040732?text=I'm interested in ${product.name}`}
+                                            href={`https://wa.me/92510000000?text=I'm interested in ${product.name}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="bg-white text-primary px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-white/90 transition-colors"
