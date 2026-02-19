@@ -21,7 +21,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="flex items-center space-x-3 mb-8"
+                        className="flex items-center space-x-3 mb-12"
                     >
                         <div className="flex text-primary">
                             {[...Array(5)].map((_, i) => (

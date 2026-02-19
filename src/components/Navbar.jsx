@@ -80,7 +80,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="lg:hidden fixed inset-0 w-full bg-white/98 backdrop-blur-2xl z-[-1] flex flex-col items-center justify-center pt-20 space-y-10"
+              className="lg:hidden fixed inset-0 w-full bg-white/98 backdrop-blur-2xl z-[-1] flex flex-col items-center justify-center pt-48 space-y-10"
             >
               {navLinks.map((link) => (
                 <motion.a
