@@ -14,6 +14,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: 'Home', href: '#' },
     { name: 'About', href: '#about' },
@@ -32,8 +43,8 @@ const Navbar = () => {
           </p>
         </div>
       </div>
-      <nav className={`transition-all duration-500 ${isScrolled ? 'bg-white/95 py-3 backdrop-blur-xl shadow-lg border-b border-primary/10' : 'bg-transparent py-4'}`}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
+      <nav className={`transition-all duration-500 relative z-[130] ${mobileMenuOpen ? 'bg-transparent py-4' : isScrolled ? 'bg-white/95 py-3 backdrop-blur-xl shadow-lg border-b border-primary/10' : 'bg-transparent py-4'}`}>
+        <div className="container mx-auto px-6 flex justify-between items-center relative">
           {/* Logo */}
           <a href="#home" className="flex flex-col items-start translate-x-0 hover:scale-105 transition-transform duration-300 origin-left group">
             <span className="text-2xl font-serif text-primary tracking-[0.2em] font-bold leading-tight drop-shadow-sm group-hover:text-primary transition-colors">Royal Oud Fragrances</span>
@@ -66,47 +77,50 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <div className="lg:hidden flex items-center space-x-6">
             <a href="tel:+92510000000" className="text-primary hover:scale-110 transition-transform"><Phone size={22} /></a>
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className={`transition-colors ${isScrolled ? 'text-[#1A1A1A]' : 'text-gray-800'}`}>
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className={`transition-colors relative ${isScrolled || mobileMenuOpen ? 'text-[#1A1A1A]' : 'text-gray-800'}`}>
               {mobileMenuOpen ? <X size={30} /> : <Menu size={30} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="lg:hidden fixed inset-0 w-full bg-white/98 backdrop-blur-2xl z-[-1] flex flex-col items-center justify-center pt-48 space-y-10"
-            >
-              {navLinks.map((link) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-3xl font-serif tracking-widest text-[#1A1A1A] hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </motion.a>
-              ))}
+      </nav>
+
+      {/* Mobile Menu - Moved outside nav to avoid scroll-driven style changes */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden fixed inset-0 w-full h-screen bg-white z-[120] flex flex-col items-center justify-center pt-20 space-y-10"
+          >
+            {navLinks.map((link, idx) => (
               <motion.a
-                href="https://wa.me/92510000000"
+                key={link.name}
+                href={link.href}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="btn-primary !px-12 !py-4 text-lg"
+                transition={{ delay: 0.1 + idx * 0.05 }}
                 onClick={() => setMobileMenuOpen(false)}
+                className="text-3xl font-serif tracking-widest text-[#1A1A1A] hover:text-primary transition-colors"
               >
-                ORDER NOW
+                {link.name}
               </motion.a>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+            ))}
+            <motion.a
+              href="https://wa.me/92510000000"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="btn-primary !px-12 !py-4 text-lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              ORDER NOW
+            </motion.a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

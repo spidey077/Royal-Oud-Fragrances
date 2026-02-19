@@ -16,12 +16,12 @@ const Hero = () => {
             </div>
 
             <div className="container mx-auto px-6 relative z-20">
-                <div className="max-w-4xl">
+                <div className="max-w-4xl py-12 md:py-20">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="flex items-center space-x-3 mb-12"
+                        className="flex items-center space-x-3 mb-8"
                     >
                         <div className="flex text-primary">
                             {[...Array(5)].map((_, i) => (
@@ -37,7 +37,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-6xl md:text-9xl font-serif leading-tight mb-8 text-[#1A1A1A]"
+                        className="text-5xl md:text-8xl font-serif leading-tight mb-8 text-[#1A1A1A]"
                     >
                         Royal Oud Fragrances <br />
                         <span className="text-primary italic drop-shadow-sm">Islamabad</span>
@@ -47,7 +47,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-xl md:text-2xl text-gray-700 mb-12 max-w-2xl font-light leading-relaxed"
+                        className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl font-light leading-relaxed"
                     >
                         Discover Islamabad's most exclusive boutique perfumes. Long-lasting quality and signature scents curated for you.
                     </motion.p>
