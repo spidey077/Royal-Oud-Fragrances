@@ -46,7 +46,8 @@ const Navbar = () => {
       <nav className={`transition-all duration-500 relative z-[130] ${mobileMenuOpen ? 'bg-transparent py-4' : isScrolled ? 'bg-white/95 py-3 backdrop-blur-xl shadow-lg border-b border-primary/10' : 'bg-transparent py-4'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
           {/* Logo */}
-          <a href="#home" className="flex flex-col items-start translate-x-0 hover:scale-105 transition-transform duration-300 origin-left group">
+          {/* Logo */}
+          <a href="#home" className={`flex flex-col items-start translate-x-0 hover:scale-105 transition-transform duration-300 origin-left group ${mobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
             <span className="text-2xl font-serif text-primary tracking-[0.2em] font-bold leading-tight drop-shadow-sm group-hover:text-primary transition-colors">Royal Oud Fragrances</span>
             <span className="text-[10px] tracking-[0.5em] uppercase text-gray-500 font-light -mt-1 group-hover:text-primary transition-colors">F-10 Markaz, Islamabad</span>
           </a>

@@ -31,7 +31,13 @@ const Reviews = () => {
         <section id="reviews" className="section-padding bg-[#F8F9FA] relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/2 blur-[150px] rounded-full" />
             <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-24"
+                >
                     <div className="flex justify-center text-primary mb-6">
                         {[...Array(5)].map((_, i) => (
                             <Star key={i} size={28} fill="#E63946" stroke="#E63946" className="mx-1 font-bold" />
@@ -42,7 +48,7 @@ const Reviews = () => {
                         With an average rating of <span className="text-primary font-bold text-2xl drop-shadow-sm">4.9/5</span> from our elite clientele in Islamabad.
                     </p>
                     <div className="w-24 h-1 bg-primary mx-auto mt-10 rounded-full" />
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {reviews.map((review, index) => (

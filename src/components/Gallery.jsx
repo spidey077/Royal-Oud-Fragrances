@@ -11,11 +11,17 @@ const Gallery = () => {
     return (
         <section id="gallery" className="section-padding bg-white relative">
             <div className="container mx-auto px-6 relative z-10">
-                <div className="mb-20">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="mb-20"
+                >
                     <span className="text-primary uppercase tracking-[0.4em] text-xs font-bold mb-4 block">Visual Journey</span>
                     <h2 className="text-5xl md:text-6xl font-serif text-[#1A1A1A]">Store Gallery</h2>
                     <div className="w-20 h-1 bg-primary mt-6 rounded-full" />
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
                     {images.map((img, index) => (

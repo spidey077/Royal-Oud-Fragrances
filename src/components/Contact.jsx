@@ -18,7 +18,13 @@ const Contact = () => {
                         <h2 className="text-5xl md:text-7xl font-serif mb-10 leading-tight text-[#1A1A1A]">Visit Our Boutique <br /> <span className="text-primary italic">In Islamabad</span></h2>
 
                         <div className="space-y-10 mt-16">
-                            <div className="flex items-start gap-6 group">
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2, duration: 0.6 }}
+                                className="flex items-start gap-6 group"
+                            >
                                 <div className="bg-[#F8F9FA] p-4 rounded-xl border border-gray-100 group-hover:border-primary/50 transition-colors shadow-sm">
                                     <MapPin className="text-primary" size={28} />
                                 </div>
@@ -26,9 +32,15 @@ const Contact = () => {
                                     <h4 className="font-serif text-2xl mb-2 text-[#1A1A1A]">Location</h4>
                                     <p className="text-gray-600 font-light text-lg">Suite 12, First Floor, F-10 Markaz, Islamabad, 44000, Pakistan</p>
                                 </div>
-                            </div>
+                            </motion.div>
 
-                            <div className="flex items-start gap-6 group">
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3, duration: 0.6 }}
+                                className="flex items-start gap-6 group"
+                            >
                                 <div className="bg-[#F8F9FA] p-4 rounded-xl border border-gray-100 group-hover:border-primary/50 transition-colors shadow-sm">
                                     <Phone className="text-primary" size={28} />
                                 </div>
@@ -36,9 +48,15 @@ const Contact = () => {
                                     <h4 className="font-serif text-2xl mb-2 text-[#1A1A1A]">Call Us</h4>
                                     <p className="text-gray-600 font-light text-lg">051 0000000</p>
                                 </div>
-                            </div>
+                            </motion.div>
 
-                            <div className="flex items-start gap-6 group">
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.4, duration: 0.6 }}
+                                className="flex items-start gap-6 group"
+                            >
                                 <div className="bg-[#F8F9FA] p-4 rounded-xl border border-gray-100 group-hover:border-primary/50 transition-colors shadow-sm">
                                     <Clock className="text-primary" size={28} />
                                 </div>
@@ -46,10 +64,16 @@ const Contact = () => {
                                     <h4 className="font-serif text-2xl mb-2 text-[#1A1A1A]">Hours</h4>
                                     <p className="text-primary font-semibold italic text-lg">Open · Closes 11 PM</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
 
-                        <div className="mt-16 flex flex-wrap gap-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.5, duration: 0.6 }}
+                            className="mt-16 flex flex-wrap gap-6"
+                        >
                             <a
                                 href="https://wa.me/92510000000"
                                 target="_blank"
@@ -64,7 +88,7 @@ const Contact = () => {
                             >
                                 <Phone size={20} /> Call Now
                             </a>
-                        </div>
+                        </motion.div>
                     </motion.div>
 
                     <motion.div

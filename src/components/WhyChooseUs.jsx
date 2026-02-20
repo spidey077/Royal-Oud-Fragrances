@@ -30,11 +30,17 @@ const WhyChooseUs = () => {
         <section id="why-us" className="section-padding bg-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 blur-[120px] rounded-full" />
             <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-24"
+                >
                     <span className="text-primary uppercase tracking-[0.4em] text-xs font-bold mb-4 block">The Fragrance City Edge</span>
                     <h2 className="text-5xl md:text-6xl font-serif mb-6 text-[#1A1A1A]">Why Choose Us?</h2>
                     <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature, index) => (

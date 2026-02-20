@@ -20,12 +20,23 @@ const Collection = () => {
         <section id="collection" className="section-padding bg-white">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
                         <span className="text-primary uppercase tracking-[0.4em] text-xs font-bold mb-4 block">Exquisite Selection</span>
                         <h2 className="text-5xl md:text-6xl font-serif text-[#1A1A1A]">The Collection</h2>
-                    </div>
+                    </motion.div>
 
-                    <div className="flex flex-wrap gap-3">
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-wrap gap-3"
+                    >
                         {categories.map(cat => (
                             <button
                                 key={cat}
@@ -36,7 +47,7 @@ const Collection = () => {
                                 {cat}
                             </button>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
 
                 <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

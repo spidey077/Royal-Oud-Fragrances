@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Facebook, Instagram, Twitter, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
@@ -7,7 +8,13 @@ const Footer = () => {
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 blur-[150px] rounded-full" />
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
-                    <div className="lg:col-span-1">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="lg:col-span-1"
+                    >
                         <a href="#home" className="flex flex-col items-start mb-8 group">
                             <span className="text-2xl font-serif text-primary tracking-[0.2em] font-bold leading-tight group-hover:scale-105 transition-transform origin-left">Royal Oud Fragrances</span>
                             <span className="text-[10px] tracking-[0.5em] uppercase text-gray-500 font-light">F-10 Markaz Islamabad</span>
@@ -20,9 +27,14 @@ const Footer = () => {
                             <a href="#" className="text-gray-400 hover:text-primary transition-all hover:-translate-y-1"><Instagram size={22} /></a>
                             <a href="#" className="text-gray-400 hover:text-primary transition-all hover:-translate-y-1"><Twitter size={22} /></a>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                    >
                         <h4 className="text-[#1A1A1A] font-serif text-xl mb-8 border-b border-primary/20 pb-2 inline-block">Quick Links</h4>
                         <ul className="space-y-5 text-gray-600 text-sm">
                             <li><a href="#home" className="hover:text-primary transition-colors flex items-center gap-2 font-medium uppercase tracking-widest text-[11px]">Home</a></li>
@@ -30,9 +42,14 @@ const Footer = () => {
                             <li><a href="#collection" className="hover:text-primary transition-colors flex items-center gap-2 font-medium uppercase tracking-widest text-[11px]">Collection</a></li>
                             <li><a href="#gallery" className="hover:text-primary transition-colors flex items-center gap-2 font-medium uppercase tracking-widest text-[11px]">Gallery</a></li>
                         </ul>
-                    </div>
+                    </motion.div>
 
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    >
                         <h4 className="text-[#1A1A1A] font-serif text-xl mb-8 border-b border-primary/20 pb-2 inline-block">Customer Care</h4>
                         <ul className="space-y-5 text-gray-600 text-sm">
                             <li><a href="#contact" className="hover:text-primary transition-colors flex items-center gap-2 font-medium uppercase tracking-widest text-[11px]">Contact Us</a></li>
@@ -40,9 +57,14 @@ const Footer = () => {
                             <li><a href="#why-us" className="hover:text-primary transition-colors flex items-center gap-2 font-medium uppercase tracking-widest text-[11px]">Why Choose Us</a></li>
                             <li><a href="#reviews" className="hover:text-primary transition-colors flex items-center gap-2 font-medium uppercase tracking-widest text-[11px]">Reviews</a></li>
                         </ul>
-                    </div>
+                    </motion.div>
 
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                    >
                         <h4 className="text-[#1A1A1A] font-serif text-xl mb-8 border-b border-primary/20 pb-2 inline-block">Store Info</h4>
                         <div className="space-y-6">
                             <div className="text-gray-600 text-sm">
@@ -58,7 +80,7 @@ const Footer = () => {
                                 <p>051 0000000</p>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className="border-t border-gray-100 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
