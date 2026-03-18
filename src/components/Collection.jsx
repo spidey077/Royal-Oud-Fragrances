@@ -5,7 +5,6 @@ import { ShoppingCart } from 'lucide-react';
 const products = [
     { id: 1, name: "Midnight Oud", category: "Men", price: "Rs. 4,500", image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=600&h=800&fit=crop", desc: "Deep, woody and mysterious." },
     { id: 2, name: "Velvet Rose", category: "Women", price: "Rs. 3,800", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&h=800&fit=crop", desc: "Elegant floral notes for the modern woman." },
-    { id: 3, name: "Golden Sand", category: "Unisex", price: "Rs. 2,900", image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=600&h=800&fit=crop", desc: "Warm citrus and amber blend." },
 ];
 
 const Collection = () => {
