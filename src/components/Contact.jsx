@@ -75,7 +75,7 @@ const Contact = () => {
                             className="mt-16 flex flex-wrap gap-6"
                         >
                             <a
-                                href="https://wa.me/92510000000"
+                                href="https://wa.me/923318962777"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn-primary flex items-center gap-3 !px-10"
