@@ -79,7 +79,7 @@ const Hero = () => {
                                 className="absolute -bottom-6 -left-6 z-20 bg-white p-6 rounded-xl shadow-xl border border-primary/5"
                             >
                                 <p className="text-primary font-serif text-2xl italic mb-1">Signature</p>
-                                <p className="text-[10px] tracking-widest uppercase text-gray-500">Collection 2026</p>
+                                <p className="text-[10px] tracking-widest uppercase text-gray-500">Velvet Rose</p>
                             </motion.div>
                         </div>
                     </motion.div>
