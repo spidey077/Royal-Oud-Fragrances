@@ -77,7 +77,7 @@ const Footer = () => {
                             </div>
                             <div className="text-gray-600 text-sm">
                                 <p className="font-bold text-[#1A1A1A] mb-1 uppercase tracking-tighter">Phone:</p>
-                                <p>051 0000000</p>
+                                <p>+92 3318962777</p>
                             </div>
                         </div>
                     </motion.div>
