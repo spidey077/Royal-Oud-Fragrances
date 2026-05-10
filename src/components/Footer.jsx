@@ -85,12 +85,8 @@ const Footer = () => {
 
                 <div className="border-t border-gray-100 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-gray-400 text-[10px] tracking-[0.3em] uppercase font-bold">
-                        © 2026 Royal Oud Fragrances. ISLAMABAD.
+                        © 2026 Made by Imdadullah.
                     </p>
-                    <div className="flex items-center space-x-10">
-                        <a href="#" className="text-gray-400 text-[10px] tracking-[0.2em] hover:text-[#1A1A1A] transition-colors uppercase font-bold">PRIVACY</a>
-                        <a href="#" className="text-gray-400 text-[10px] tracking-[0.2em] hover:text-[#1A1A1A] transition-colors uppercase font-bold">TERMS</a>
-                    </div>
                 </div>
             </div>
 
