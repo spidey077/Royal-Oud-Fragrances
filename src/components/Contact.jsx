@@ -83,7 +83,7 @@ const Contact = () => {
                                 <MessageSquare size={20} /> WhatsApp Us
                             </a>
                             <a
-                                href="tel:+92510000000"
+                                href="tel:+923318962777"
                                 className="btn-secondary flex items-center gap-3 !px-10"
                             >
                                 <Phone size={20} /> Call Now
