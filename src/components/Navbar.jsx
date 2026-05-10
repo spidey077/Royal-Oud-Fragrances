@@ -65,7 +65,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="https://wa.me/92510000000"
+              href="https://wa.me/923318962777"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-3 btn-primary !py-2.5 !px-6 text-[11px] tracking-widest"
