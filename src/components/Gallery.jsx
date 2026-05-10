@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 const Gallery = () => {
     const images = [
-        { url: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800&auto=format&fit=crop", title: "Midnight Oud" },
-        { url: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop", title: "Velvet Rose" }
+        { url: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800&auto=format&fit=crop", title: "Velvet Rose" },
+        { url: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop", title: "Midnight Oud" }
     ];
 
     return (
