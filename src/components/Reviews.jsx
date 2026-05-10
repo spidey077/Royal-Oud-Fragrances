@@ -17,13 +17,6 @@ const Reviews = () => {
             text: "I am their regular customer and they are doing really great work in their field.",
             date: "a year ago",
             avatar: "https://i.pravatar.cc/150?u=syed"
-        },
-        {
-            name: "Ahmad Qureshi",
-            rating: 5,
-            text: "One of the best Fragrance studio in the town.",
-            date: "a year ago",
-            avatar: "https://i.pravatar.cc/150?u=ahmad"
         }
     ];
 
