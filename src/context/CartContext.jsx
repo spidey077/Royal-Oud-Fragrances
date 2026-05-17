@@ -106,19 +106,26 @@ export const CartProvider = ({ children }) => {
                 .map((item) => `${item.name} (x${item.quantity})`)
                 .join(', ');
 
-            // 3. Save to Supabase (Leads table)
-            // Save order detail + customer info in product_name to maximize utility without modifying columns
-            const extendedSummary = `${productNamesSummary} | Customer: ${customerDetails.name} (${customerDetails.phone}) | Address: ${customerDetails.address}, ${customerDetails.city}`;
+            // 3. Save to Supabase (Leads table) - wrapped in try-catch to be non-blocking
+            try {
+                const extendedSummary = `${productNamesSummary} | Customer: ${customerDetails.name} (${customerDetails.phone}) | Address: ${customerDetails.address}, ${customerDetails.city}`;
 
-            const { error: dbError } = await supabase.from('leads').insert([
-                {
-                    order_id: orderId,
-                    product_name: extendedSummary,
-                    price: formatPrice(total),
-                },
-            ]);
+                const { error: dbError } = await supabase.from('leads').insert([
+                    {
+                        order_id: orderId,
+                        product_name: extendedSummary,
+                        price: formatPrice(total),
+                    },
+                ]);
 
-            if (dbError) throw dbError;
+                if (dbError) {
+                    console.warn('Supabase DB write warning:', dbError.message);
+                } else {
+                    console.log('Supabase DB write success!');
+                }
+            } catch (dbErr) {
+                console.warn('Non-blocking Supabase logging failed:', dbErr.message);
+            }
 
             // 4. Construct WhatsApp Message
             const itemLines = cart
