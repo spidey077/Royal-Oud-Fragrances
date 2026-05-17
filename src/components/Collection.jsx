@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart } from 'lucide-react';
 import { supabase } from '../supabaseClient';
+import { useCart } from '../context/CartContext';
 
 const Collection = () => {
     const [activeCategory, setActiveCategory] = useState('All');
     const [productsList, setProductsList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { addToCart } = useCart();
 
     const categories = ['All', 'Men', 'Women', 'Unisex', 'Best Sellers'];
 
@@ -37,39 +39,6 @@ const Collection = () => {
 
         fetchProducts();
     }, []);
-
-    const handleOrder = async (product) => {
-        // 1. Generate a unique Order ID: RO-XXXXX (where XXXXX is a random 5 digit number)
-        const orderId = `RO-${Math.floor(10000 + Math.random() * 90000)}`;
-
-        // 2. Prepare WhatsApp message
-        const whatsappText = `Hello! I would like to place an order for the following perfume:
-        
-*Product:* ${product.name}
-*Price:* ${product.price}
-*Order Reference ID:* ${orderId}
-
-Please let me know the payment and delivery details. Thank you!`;
-
-        const encodedText = encodeURIComponent(whatsappText);
-        const whatsappUrl = `https://wa.me/923318962777?text=${encodedText}`;
-
-        // 3. Log lead to Supabase (non-blocking, so order proceeds even if DB write fails)
-        try {
-            await supabase.from('leads').insert([
-                {
-                    order_id: orderId,
-                    product_name: product.name,
-                    price: product.price
-                }
-            ]);
-        } catch (err) {
-            console.error('Failed to log lead to database:', err.message);
-        }
-
-        // 4. Redirect to WhatsApp
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    };
 
     const filteredProducts = activeCategory === 'All'
         ? productsList
@@ -148,8 +117,8 @@ Please let me know the payment and delivery details. Thank you!`;
                                         <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center backdrop-blur-sm">
                                             <p className="text-white mb-6 font-light">{product.desc}</p>
                                             <button
-                                                onClick={() => handleOrder(product)}
-                                                className="bg-white text-primary px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-white/90 transition-colors cursor-pointer"
+                                                onClick={() => addToCart(product)}
+                                                className="bg-white text-primary px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-white/90 transition-colors cursor-pointer border-none"
                                             >
                                                 <ShoppingCart size={16} /> Order Now
                                             </button>

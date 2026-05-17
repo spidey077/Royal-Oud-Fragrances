@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '../context/CartContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { cartCount, setIsCartOpen } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,15 +66,25 @@ const Navbar = () => {
                 <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
-            <a
-              href="https://wa.me/923318962777"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-3 btn-primary !py-2.5 !px-6 text-[11px] tracking-widest"
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="flex items-center space-x-3 btn-primary !py-2.5 !px-6 text-[11px] tracking-widest cursor-pointer relative"
             >
-              <ShoppingBag size={18} />
-              <span className="font-bold">ORDER NOW</span>
-            </a>
+              <div className="relative">
+                <ShoppingBag size={18} />
+                {cartCount > 0 && (
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    animate={{ scale: [0, 1.2, 1] }}
+                    key={cartCount}
+                    className="absolute -top-3.5 -right-3.5 bg-primary text-white text-[9px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border border-white shadow-sm"
+                  >
+                    {cartCount}
+                  </motion.span>
+                )}
+              </div>
+              <span className="font-bold">CART</span>
+            </button>
           </div>
 
           {/* Mobile Toggle */}
@@ -109,16 +121,19 @@ const Navbar = () => {
                 {link.name}
               </motion.a>
             ))}
-            <motion.a
-              href="https://wa.me/92510000000"
+            <motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="btn-primary !px-12 !py-4 text-lg"
-              onClick={() => setMobileMenuOpen(false)}
+              className="btn-primary !px-12 !py-4 text-lg cursor-pointer flex items-center justify-center gap-2"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setIsCartOpen(true);
+              }}
             >
-              ORDER NOW
-            </motion.a>
+              <ShoppingBag size={22} />
+              <span>YOUR CART ({cartCount})</span>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
