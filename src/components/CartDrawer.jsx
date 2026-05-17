@@ -20,6 +20,7 @@ const CartDrawer = () => {
     const [view, setView] = useState('cart'); // 'cart' | 'checkout' | 'success'
     const [loading, setLoading] = useState(false);
     const [orderRef, setOrderRef] = useState('');
+    const [whatsappUrl, setWhatsappUrl] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -62,12 +63,13 @@ const CartDrawer = () => {
 
         if (result.success) {
             setOrderRef(result.orderId);
+            setWhatsappUrl(result.whatsappUrl);
             setView('success');
             
-            // Redirect to WhatsApp in a new tab
+            // Redirect using window.location.href (which is never blocked by browser popup blockers!)
             setTimeout(() => {
-                window.open(result.whatsappUrl, '_blank', 'noopener,noreferrer');
-            }, 800);
+                window.location.href = result.whatsappUrl;
+            }, 1000);
         } else {
             alert('Failed to place order: ' + result.error);
         }
@@ -325,20 +327,27 @@ const CartDrawer = () => {
 
                                     <h3 className="text-2xl font-serif mb-2 text-[#1A1A1A]">Order Placed!</h3>
                                     
-                                    <div className="bg-gray-50 border border-gray-100 rounded-xl p-4 my-6 w-full max-w-sm">
+                                    <div className="bg-gray-50 border border-gray-100 rounded-xl p-4 my-4 w-full max-w-sm">
                                         <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Order Reference ID</p>
                                         <p className="text-xl font-mono text-primary font-bold mt-1">{orderRef}</p>
                                     </div>
 
-                                    <p className="text-gray-500 text-xs leading-relaxed max-w-xs mb-8">
-                                        Your order has been saved successfully in our system! We are now redirecting you to WhatsApp to complete payment and delivery instructions.
+                                    <p className="text-gray-500 text-xs leading-relaxed max-w-xs mb-6">
+                                        Your order has been logged! If you were not automatically redirected, please click the button below to send your confirmation to our team.
                                     </p>
+
+                                    <a
+                                        href={whatsappUrl}
+                                        className="w-full bg-[#25D366] text-white py-3.5 rounded-sm font-semibold text-xs tracking-widest uppercase hover:bg-[#128C7E] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg mb-4 text-center"
+                                    >
+                                        Send to WhatsApp
+                                    </a>
 
                                     <button
                                         onClick={handleContinueShopping}
-                                        className="btn-primary !py-2.5 !px-8 text-xs tracking-widest cursor-pointer shadow-md"
+                                        className="text-xs font-bold text-gray-500 hover:text-primary tracking-widest uppercase transition-colors py-2 cursor-pointer"
                                     >
-                                        CONTINUE SHOPPING
+                                        Continue Shopping
                                     </button>
                                 </motion.div>
                             )}

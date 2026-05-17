@@ -150,7 +150,7 @@ ${itemLines}
 - *Shipping Address:* ${customerDetails.address}
 - *City:* ${customerDetails.city}
 
-Please confirm my order and let me know the payment details. Thank you!`;
+*I confirm this order.*`;
 
             const encodedText = encodeURIComponent(whatsappText);
             // Default WhatsApp number: 923318962777
